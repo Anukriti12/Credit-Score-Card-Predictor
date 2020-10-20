@@ -1,0 +1,36 @@
+{% extends 'layout.html'%} {% block title %} Predict customer credit score
+{% endblock title %} {% block body %}
+<div class="jumbotron text-center">
+	<center>
+		<h3 style="font-family: impact;">Predict customer credit score</h3>
+
+		<form method="POST" action="{{url_for('predict')}}">
+			<div class=form-group>
+				<table cellpadding=10 cellspacing=25>
+					<tr>
+						<td>
+		<input type="text" name="Seniority" placeholder="Seniority" required="required" />
+		<input type="text" name="Home" placeholder="Home" required="required" />
+		<input type="text" name="Time" placeholder="Time" required="required" />
+		<input type="text" name="Age" placeholder="Age" required="required" />
+		<input type="text" name="Marital" placeholder="Marital" required="required" />
+		<input type="text" name="Records" placeholder="Records" required="required" />
+		<input type="text" name="Job" placeholder="Job" required="required" />
+		<input type="text" name="Expenses" placeholder="Expenses" required="required" />
+		<input type="text" name="Income" placeholder="Income" required="required" />
+		<input type="text" name="Assets" placeholder="Assets" required="required" />
+		<input type="text" name="Debt" placeholder="Debt" required="required" />
+		<input type="text" name="Amount" placeholder="Amount" required="required" />
+		<input type="text" name="Price" placeholder="Price" required="required" />       
+							</td>
+						<td align="center">
+						 <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+						</td>
+					</tr>     
+				</table>
+			</div>
+		</form>
+	</center>
+	{{ prediction_text }}
+</div>
+{% endblock body %}

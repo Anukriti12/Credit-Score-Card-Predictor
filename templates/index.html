@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+
+<div class="jumbotron text-center">
+		
+	<center>
+  
+
+		<form method="POST" action="{{url_for('predict')}}">
+		<h3 class="mtn">Predict customer credit score</h3>
+			<div class=form-group>
+				<table cellpadding=5 cellspacing=15 width="800" height="400">
+					<tr>
+						<td>
+		<input type="text" name="Age" placeholder="Your Age" required="required" />
+		<input type="text" name="Job" placeholder="Job type (Fixed: 1, Part-time: 2, Freelance: 3, Other: 4)" required="required" />
+		<input type="text" name="Seniority" placeholder="Job Seniority level (in years) " required="required" />
+		<input type="text" name="Home" placeholder="Home ownership (Rented: 1, Owner: 2, Privilege: 3, Ignore: 4, Parents: 5, Other: 6)" required="required" />
+		<input type="text" name="Marital" placeholder="Marital status (Single: 1, Married: 2, Widow: 3, Seperated: 4, Divorced: 5)" required="required" />
+		<input type="text" name="Records" placeholder="Existence of earlier Records with bank (No: 1, Yes: 2)" required="required" />
+		<input type="text" name="Expenses" placeholder="Per month expenses (in K)" required="required" />
+		<input type="text" name="Income" placeholder="Monthly Income (in K)" required="required" />
+		<input type="text" name="Assets" placeholder="Number of Assets" required="required" />
+		<input type="text" name="Debt" placeholder="Debt Amount (in K)" required="required" />
+		<input type="text" name="Amount" placeholder="Amount requested for loan (in K)" required="required" />
+		<input type="text" name="Price" placeholder="Price of good/purchase/any other purpose of loan (in K)" required="required" />  
+		<input type="text" name="Time" placeholder="Time period for requested loan (in months)" required="required" />
+		     
+							</td>
+						<td align="center" >
+						 <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+						 {{ prediction_text }}
+						</td>
+					</tr> 
+		  
+				</table>
+				
+			</div>
+		</form>
+	</center>
+	
+</div>
+
+</body>
+</html>
