@@ -4,7 +4,7 @@ import pickle
 import statsmodels.api as sm
 
 app = Flask(__name__)
-model = pickle.load(open('model1.pkl', 'rb'))
+model = pickle.load(open('model2.pkl', 'rb'))
 
 @app.route('/')
 def home():
@@ -18,20 +18,20 @@ def predict():
     seniority = int(request.form["Seniority"])
     home = int(request.form["Home"])
     time = int(request.form["Time"])
-    age= int(request.form["Age"])
+
     marital=int(request.form["Marital"])
     records=int(request.form["Records"])
     job=int(request.form["Job"])
     expenses=int(request.form["Expenses"])
     income=int(request.form["Income"])
-    assets=int(request.form["Assets"])
+
     debt=int(request.form["Debt"])
     amount=int(request.form["Amount"])
     price=int(request.form["Price"])
     finrat = round((amount/price)*100,6 )
     savings = round((income-expenses-(debt/100))/(amount/time),6 )
     features=[1.0]
-    features.extend([seniority, home, time, age, marital, records, job, expenses, income, assets, debt, amount, price, finrat, savings])
+    features.extend([seniority, home, time, marital, records, job, expenses, income , debt, amount, price, savings])
     
     final_features=[np.array(features)]
     prediction = model.predict(sm.add_constant(final_features))
